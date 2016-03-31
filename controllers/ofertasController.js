@@ -14,8 +14,19 @@ exports.crearOferta = {
       informacion: request.payload.informacion,
       salario: request.payload.salario,
     });
-    newOferta.save();
-    console.log('oferta de trabajo creada');
-    return reply('ok');
+      newOferta.save();
+      console.log('oferta de trabajo creada');
+      return reply('ok');
+    }
   }
-}
+
+exports.aplicar = {
+    auth: {
+      mode:'required',
+      strategy:'session'
+      scope: ['regular']
+    },
+    handler: function(request, reply) {
+      reply(students);
+    }
+  }
